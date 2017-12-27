@@ -1,5 +1,7 @@
 package com.cloud.gateway.filter;
 
+import com.cloud.util.domanin.SessionUser;
+import com.cloud.util.utils.Constants;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
@@ -16,7 +18,7 @@ import java.util.Enumeration;
  * 另外在GatewayApplication上如果加上注解
  * @EnableRedisHttpSession(redisFlushMode = RedisFlushMode.IMMEDIATE)，意思是告诉Redis立即保存session。
  */
-public class AccessFilter extends ZuulFilter{
+public class AccessFilter extends ZuulFilter {
 
     private static Logger logger = LoggerFactory.getLogger(AccessFilter.class);
 
@@ -63,9 +65,9 @@ public class AccessFilter extends ZuulFilter{
 
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpSession httpSession = ctx.getRequest().getSession();
-
-        SessionUser sessionUser= httpSession.getAttribute(Constants.USER);
-        if (sessionUser != null) {
+        Object object= httpSession.getAttribute(Constants.USER);
+        if (object != null) {
+            SessionUser sessionUser = (SessionUser) object;
             logger.debug("session中有用户信息:" + sessionUser.getMobile());
         } else {
             logger.debug("session中没有用户信息");
