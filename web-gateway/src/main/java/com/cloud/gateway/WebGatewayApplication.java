@@ -3,8 +3,8 @@ package com.cloud.gateway;
 import com.cloud.gateway.filter.AccessFilter;
 import com.cloud.gateway.filter.ErrorFilter;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
@@ -15,9 +15,10 @@ import org.springframework.web.filter.CorsFilter;
 /**
  * @author xiaosa
  * EnableZuulProxy： 开启网关服务
+ * SpringCloudApplication: 整合了@SpringBootApplication、@EnableDiscoveryClient、@EnableCircuitBreaker，主要目的还是简化配置
  */
 @EnableZuulProxy
-@SpringBootApplication
+@SpringCloudApplication
 public class WebGatewayApplication {
 
 	public static void main(String[] args) {
@@ -52,7 +53,6 @@ public class WebGatewayApplication {
 		config.setAllowCredentials(true);
 
 		//允许向该服务器提交请求的URI，*表示全部允许，在SpringMVC中，如果设成*，会自动转成当前请求头中的Origin
-		config.addAllowedOrigin("http://47.100.38.43");
         config.addAllowedOrigin("*");
 
         //允许访问的头信息,*表示全部
