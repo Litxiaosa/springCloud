@@ -13,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * EnableFeignClients：声明式服务调用客户端，调用其他微服务
  */
 @EnableSwagger2
+
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
