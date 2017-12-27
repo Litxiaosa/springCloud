@@ -1,6 +1,5 @@
 package com.cloud.web;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -15,7 +14,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableFeignClients
 @EnableDiscoveryClient
-@MapperScan("com.cloud.web.dao")
 @SpringBootApplication
 public class WebServerApplication {
 

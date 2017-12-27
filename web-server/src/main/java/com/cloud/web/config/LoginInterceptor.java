@@ -1,5 +1,8 @@
 package com.cloud.web.config;
 
+import com.cloud.util.domanin.SessionUser;
+import com.cloud.util.utils.Constants;
+import com.cloud.util.utils.ErrorCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -37,7 +40,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
         //解决中文乱码
         response.setHeader("Content-type", "application/json;charset=UTF-8");
-        response.getWriter().write(ErrorCode.USER_NOT_LOGIN.toString);
+        response.getWriter().write(ErrorCode.USER_NOT_LOGIN.toString());
         return false;
     }
 
