@@ -41,7 +41,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("web相关接口")
-                .description("订单相关接口")
+                .description("登录注册相关接口")
                 //版本
                 .version("1.0")
                 .termsOfServiceUrl("")

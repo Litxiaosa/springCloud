@@ -34,7 +34,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         logger.info("当前sessoinID：{}，当前请求URL:{},请求IP:{}", request.getSession().getId(),request.getRequestURI(),request.getRemoteHost());
         //获取session中的user
-        SessionUser sessionUser   = (SessionUser) request.getSession().getAttribute(Constants.USER);
+        SessionUser sessionUser = (SessionUser) request.getSession().getAttribute(Constants.USER);
         if(sessionUser!=null){
             return  true;
         }
