@@ -17,15 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 @Api("webController相关Api")
 public class TestController {
 
-    /**
-     * 测试异常
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/hello")
-    public String hello() throws Exception {
-        throw new Exception("发生错误");
-    }
 
     /**
      * 测试Swagger2
