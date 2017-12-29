@@ -1,5 +1,6 @@
 package com.cloud.front;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -13,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * EnableFeignClients：声明式服务调用客户端，调用其他微服务
  */
 @EnableSwagger2
-
+@MapperScan("com.cloud.front.dao")
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
