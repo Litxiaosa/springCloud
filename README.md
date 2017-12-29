@@ -14,4 +14,5 @@
 - 使用 `Swagger2` 构建的RESTful API文档。(如果只是写接口可使用)
 - 微服务的统一异常处理
 - 集成MyBatis
+- front-server 集成redis
 
