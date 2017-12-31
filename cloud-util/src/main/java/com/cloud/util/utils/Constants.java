@@ -11,4 +11,15 @@ public class Constants {
      * session中的用户key
      */
     public static final String USER = "cloud_user";
+
+    /**
+     * success
+     */
+    public static final String SUCCESS = "success";
+
+    /**
+     * failure
+     */
+    public static final String FAILURE = "failure";
+
 }
