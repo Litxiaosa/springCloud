@@ -53,6 +53,13 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!--工具类-->
+		<dependency>
+			<groupId>com.cloud</groupId>
+			<artifactId>cloud-util</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!--eureka-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -90,12 +97,6 @@
 			<version>2.7.0</version>
 		</dependency>
 
-		<!--工具类-->
-		<dependency>
-			<groupId>com.cloud</groupId>
-			<artifactId>cloud-util</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 
 		<!--thymeleaf-->
 		<dependency>
@@ -128,6 +129,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+
+		<!--RabbitMQ-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
 
 	</dependencies>
 

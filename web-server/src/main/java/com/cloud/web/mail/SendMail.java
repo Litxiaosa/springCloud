@@ -2,19 +2,15 @@ package com.cloud.web.mail;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.context.IContext;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.File;
 import java.util.Locale;
 import java.util.Map;
 
@@ -38,6 +34,7 @@ public class SendMail{
      * @throws MessagingException
      */
     public void sendMailTemplate(String mail, String subject, Map<String, Object> model) throws MessagingException {
+
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         //开启带附件true
         MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
