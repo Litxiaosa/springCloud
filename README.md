@@ -16,4 +16,5 @@
 - Thymeleaf
 - 集成MyBatis
 - front-server 集成redis
+- web-server 集成邮件发送，需要在config-server 配置你的授权码
 
