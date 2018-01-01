@@ -18,4 +18,5 @@
 - front-server 集成redis
 - web-server 集成邮件发送，需要在config-server 配置你的授权码
 - web-server 集成亿美短信提醒，需要你在cloud-util的SMSEmay类里面修改亿美的配置
+- front-server 增加定时任务
 
