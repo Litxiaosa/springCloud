@@ -1,7 +1,7 @@
 package com.cloud.web.amqp;
 
 import com.cloud.util.utils.sms.SMSTemplate;
-import com.cloud.web.service.IUserService;
+import com.cloud.web.service.ISendMagService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -21,13 +21,13 @@ public class NotifyMsgListener {
     private Logger logger = LoggerFactory.getLogger(NotifyMsgListener.class);
 
     @Autowired
-    private IUserService userService;
+    private ISendMagService sendMagService;
 
     @RabbitListener(queues = "queue.sendMsg")
     public void process(Map<String,Object> map){
         try {
             //发短信
-            userService.sendMsg((String)map.get("mobile"), SMSTemplate.SEND_MSG, (String)map.get("name"));
+            sendMagService.sendMsg((String)map.get("mobile"), SMSTemplate.SEND_MSG, (String)map.get("userName"));
         }catch (Exception e){
             logger.error("短信提醒业务处理异常{}",e);
         }

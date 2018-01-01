@@ -5,11 +5,14 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author xiaosa
+ */
 @Data
 public class User implements Serializable {
-    private Long id;
+    private Integer id;
 
-    private String name;
+    private String userName;
 
     private String mobile;
 
@@ -26,4 +29,5 @@ public class User implements Serializable {
     private Boolean invalid;
 
     private static final long serialVersionUID = 1L;
+
 }

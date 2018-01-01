@@ -1,19 +1,22 @@
 package com.cloud.web.service;
 
-import com.cloud.util.utils.sms.SMSTemplate;
+import com.cloud.web.domain.User;
 
 /**
  * @author xiaosa
  */
 public interface IUserService {
 
+    /**
+     * 把用户信息插入数据库
+     * @param user
+     */
+    void insert(User user);
 
     /**
-     * 发短信, String... values: 可变参数
-     * @param mobile
-     * @param temp
-     * @param values
+     * 查询该账号是否已经存在
+     * @param userName
      * @return
      */
-    Boolean sendMsg(String mobile, SMSTemplate temp, String... values);
+    User getUserByUserName(String userName);
 }
