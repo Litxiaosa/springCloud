@@ -15,7 +15,7 @@ public class SessionUser implements Serializable{
 
     private String mobile;
 
-    private String name;
+    private String userName;
 
     private String email;
 

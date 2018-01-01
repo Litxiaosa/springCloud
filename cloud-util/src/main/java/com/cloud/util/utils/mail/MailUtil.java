@@ -13,7 +13,7 @@ public class MailUtil {
      * @param str
      * @return
      */
-    public static boolean isMobile(String str) {
+    public static boolean isMail(String str) {
         String mailVerify = "^([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+" +
                 "[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$";
         Pattern p = null;
