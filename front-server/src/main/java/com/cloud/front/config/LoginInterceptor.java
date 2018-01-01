@@ -39,8 +39,10 @@ public class LoginInterceptor implements HandlerInterceptor {
             return  true;
         }
         //解决中文乱码
-        response.setHeader("Content-type", "application/json;charset=UTF-8");
-        response.getWriter().write(ErrorCode.USER_NOT_LOGIN.toString());
+        //response.setHeader("Content-type", "application/json;charset=UTF-8");
+        //response.getWriter().write(ErrorCode.USER_NOT_LOGIN.toString());
+        //重定向去登录
+        response.sendRedirect("login");
         return false;
     }
 
