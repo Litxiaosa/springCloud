@@ -39,17 +39,13 @@
   在Spring Boot工程的 `/src/main/resources` 目录下创建一个`banner.txt`文件,然后将ASCII字符画复制进去，就能替换默认的banner了。
   
   还使用了一些属性设置：
-  `${AnsiColor.BRIGHT_RED}`：设置控制台中输出内容的颜色
   
-  `${application.version}`：用来获取MANIFEST.MF文件中的版本号
-  
-  `${application.formatted-version}`：格式化后的
-  
-  `${application.version}`版本信息
-  
-  `${spring-boot.version}`：Spring Boot的版本号
-  
-  `${spring-boot.formatted-version}`：格式化后的`${spring-boot.version}`版本信息
+  > `${AnsiColor.BRIGHT_RED}`：设置控制台中输出内容的颜色
+  > `${application.version}`：用来获取MANIFEST.MF文件中的版本号
+  > `${application.formatted-version}`：格式化后的
+  > `${application.version}`版本信息
+  > `${spring-boot.version}`：Spring Boot的版本号
+  > `${spring-boot.formatted-version}`：格式化后的`${spring-boot.version}`版本信息
   
   比如下图：
   ![](http://litxiaosa.oss-cn-shanghai.aliyuncs.com/hexo/85B7E8D6-C4D3-474B-9CBB-801954CD3F42.png)
