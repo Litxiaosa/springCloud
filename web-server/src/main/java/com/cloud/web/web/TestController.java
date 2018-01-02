@@ -1,35 +1,79 @@
 package com.cloud.web.web;
 
-import com.cloud.util.utils.Constants;
+import com.cloud.web.mail.SendMail;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.mail.MessagingException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Api注解: 表示标识这个类是swagger的资源
+ * @author xiaosa
  */
 @RestController
-@RequestMapping("/web")
+@RequestMapping("/test")
 @Api("webController相关Api")
 public class TestController {
 
+    @Autowired
+    private SendMail sendMail;
+
+    @Autowired
+    private AmqpTemplate rabbitTemplate;
+
+
+    @Value("${postMail}")
+    private String postMail;
+
 
     /**
-     * 测试Swagger2
-     * @param request
+     * 测试统一异常处理
+     * 访问 localhost:8001/web/error
      * @return
-     * @ApiOperation()用于方法，表示一个http请求的操作，value:表示这个接口的作用，notes：对着接口的一些说明
-     * hidden: 表示隐藏这个接口
+     * @throws Exception
      */
-    @ApiOperation(value = "注销接口", notes = "不用传参数,登陆就行", hidden = true)
-    @GetMapping("logout")
-    public String logout(HttpServletRequest request) {
-        request.getSession().removeAttribute(Constants.USER);
-        request.getSession().invalidate();
-        return "success";
+    @RequestMapping("/hello")
+    @ResponseBody
+    public String error() throws Exception {
+        throw new Exception("发生错误！！");
     }
+
+
+    @PostMapping("sendMail")
+    @ApiOperation(value = "")
+    public void sendMail(){
+        String mail = "litxiaosa@qq.com";
+        String subject = "SpringBoot Thymeleaf模板邮件";
+        Map<String, Object> model = new HashMap<>(1);
+        model.put("userName", "潇洒");
+        try {
+            sendMail.sendMailTemplate(mail, subject, model);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 发短息
+     */
+    @PostMapping("sendSMS")
+    @ApiOperation(value = "")
+    public void sendSMS(String mobile, String userName){
+        Map map = new HashMap<String, Object>(2);
+        map.put("mobile", mobile);
+        map.put("userName", userName);
+        //发短信
+        rabbitTemplate.convertAndSend("queue.sendMsg", map);
+    }
+
 }
