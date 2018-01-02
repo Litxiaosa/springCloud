@@ -41,10 +41,15 @@
   还使用了一些属性设置：
   
   > `${AnsiColor.BRIGHT_RED}`：设置控制台中输出内容的颜色
+  
   > `${application.version}`：用来获取MANIFEST.MF文件中的版本号
+  
   > `${application.formatted-version}`：格式化后的
+  
   > `${application.version}`版本信息
+  
   > `${spring-boot.version}`：Spring Boot的版本号
+  
   > `${spring-boot.formatted-version}`：格式化后的`${spring-boot.version}`版本信息
   
   比如下图：
