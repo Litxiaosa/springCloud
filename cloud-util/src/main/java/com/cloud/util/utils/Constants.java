@@ -22,9 +22,4 @@ public class Constants {
      */
     public static final String FAILURE = "failure";
 
-    /**
-     * MD5
-     */
-    public static final String MD5 = "MD5";
-
 }

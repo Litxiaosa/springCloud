@@ -26,7 +26,6 @@ public class SMSEmay {
 
     /**
      * 发短信
-     *
      * @param phone
      * @param content
      * @return
