@@ -39,6 +39,7 @@
 - web-server 集成邮件发送，需要在config-server 配置你的授权码
 - web-server 集成亿美短信提醒，需要你在cloud-util的SMSEmay类里面修改亿美的配置
 - front-server 增加定时任务
+- front-server 增加elasticsearch搜索引擎和事例（因为是用的博客里写的数据，如有些数据看不懂，请参照我的博客：litxiaosa.me）
 - 彩蛋：Spring Boot自定义Banner
   在Spring Boot工程的 `/src/main/resources` 目录下创建一个`banner.txt`文件,然后将ASCII字符画复制进去，就能替换默认的banner了。
   
