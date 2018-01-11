@@ -142,6 +142,18 @@
             <artifactId>msgpack</artifactId>
             <version>0.6.12</version>
         </dependency>
+
+		<!--搜索引擎-->
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>transport</artifactId>
+			<version>5.6.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>5.6.5</version>
+		</dependency>
     </dependencies>
 
 	<build>
